@@ -4,7 +4,7 @@
 ---
 
 ```markdown
-# ShopEasy E-Commerce Website
+# StylesTRY E-Commerce Website
 
 ## Project Overview
 ShopEasy is a responsive e-commerce website that allows users to browse and shop a variety of products. It features a clean and modern interface with sections for browsing products, viewing product details, managing a shopping cart, and exploring blog posts relevant to shopping trends.
