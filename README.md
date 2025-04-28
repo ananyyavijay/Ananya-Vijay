@@ -7,7 +7,7 @@
 # StylesTRY E-Commerce Website
 
 ## Project Overview
-ShopEasy is a responsive e-commerce website that allows users to browse and shop a variety of products. It features a clean and modern interface with sections for browsing products, viewing product details, managing a shopping cart, and exploring blog posts relevant to shopping trends.
+StylesTRY is a responsive e-commerce website that allows users to browse and shop a variety of products. It features a clean and modern interface with sections for browsing products, viewing product details, managing a shopping cart, and exploring blog posts relevant to shopping trends.
 
 ## Installation
 To run this project locally, clone the repository and open the `index.html` file in a web browser. The application does not require a server and operates entirely on the front end.
