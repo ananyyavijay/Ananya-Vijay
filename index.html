@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Commerce Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+<body class="bg-pastel-light font-sans min-h-screen flex flex-col">
+  <header class="bg-white shadow-md sticky top-0 z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-gray-800">ShopEasy</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="text-gray-700 hover:text-pink-500 transition">Home</a>
+        <a href="blog.html" class="text-gray-700 hover:text-pink-500 transition">Blog</a>
+        <a href="cart.html" class="text-gray-700 hover:text-pink-500 transition relative">
+          Cart
+          <i class="fas fa-shopping-cart ml-1"></i>
+          <span id="cart-count" class="absolute -top-2 -right-3 bg-pink-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 flex-grow">
+    <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search products..."
+        class="w-full md:w-1/3 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-pink-400"
+      />
+      <div class="flex space-x-3">
+        <button data-filter="all" class="filter-btn bg-pastel-pink text-white px-4 py-2 rounded-md hover:bg-pink-600 transition">All</button>
+        <select id="price-sort" class="bg-white text-gray-700 px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 cursor-pointer">
+          <option value="price-low-high">Price Low to High</option>
+          <option value="price-high-low">Price High to Low</option>
+          <option value="newest">Newest Arrivals</option>
+          <option value="popularity">Popularity</option>
+          <option value="discount">Discount</option>
+        </select>
+        <button id="wishlist-btn" aria-label="Wishlist" class="filter-btn bg-pastel-pink text-white px-4 py-2 rounded-md hover:bg-pink-600 transition flex items-center space-x-2">
+          <i class="far fa-heart"></i>
+          <span>Wishlist</span>
+        </button>
+        <button data-filter="best-selling" class="filter-btn bg-pastel-pink text-white px-4 py-2 rounded-md hover:bg-pink-600 transition">Best Selling</button>
+      </div>
+    </div>
+
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+      <!-- Skeleton loading cards -->
+      <div class="skeleton-card rounded-lg p-4 bg-white shadow-md animate-pulse"></div>
+      <div class="skeleton-card rounded-lg p-4 bg-white shadow-md animate-pulse"></div>
+      <div class="skeleton-card rounded-lg p-4 bg-white shadow-md animate-pulse"></div>
+      <div class="skeleton-card rounded-lg p-4 bg-white shadow-md animate-pulse"></div>
+    </div>
+
+    <!-- Discounted Items Section -->
+    <section class="discounted-bg rounded-lg mt-12">
+      <h2 class="text-2xl font-semibold text-pink-600 mb-6">Discounted Items</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 relative">
+      <div class="bg-white rounded-lg shadow-md p-4 flex flex-col hover:scale-105 hover:shadow-xl hover:-rotate-1 transition transform cursor-pointer relative">
+        <span class="discount-badge">-40%</span>
+        <img src="https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Summer Dress" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Summer Dress</h3>
+        <p class="text-pink-500 font-bold mb-2">$29.99 <span class="line-through text-gray-400 text-sm ml-2">$49.99</span></p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-4 flex flex-col hover:scale-105 hover:shadow-xl hover:-rotate-1 transition transform cursor-pointer relative">
+        <span class="discount-badge">-33%</span>
+        <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Sneakers" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Sneakers</h3>
+        <p class="text-pink-500 font-bold mb-2">$39.99 <span class="line-through text-gray-400 text-sm ml-2">$59.99</span></p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+    </div>
+    </section>
+
+    <!-- Additional Product Rows -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">More Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+      <div class="product-card bg-white rounded-lg shadow-md p-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl hover:-rotate-1 flex flex-col">
+        <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Leather Wallet" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Leather Wallet</h3>
+        <p class="text-pink-500 font-bold mb-2">$24.99</p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+      <div class="product-card bg-white rounded-lg shadow-md p-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl hover:-rotate-1 flex flex-col">
+        <img src="https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Stylish Sunglasses" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Stylish Sunglasses</h3>
+        <p class="text-pink-500 font-bold mb-2">$19.99</p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+      <div class="product-card bg-white rounded-lg shadow-md p-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl hover:-rotate-1 flex flex-col">
+        <img src="https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Casual Backpack Bag" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Casual Backpack</h3>
+        <p class="text-pink-500 font-bold mb-2">$49.99</p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+      <div class="product-card bg-white rounded-lg shadow-md p-4 cursor-pointer transform transition duration-300 hover:scale-105 hover:shadow-xl hover:-rotate-1 flex flex-col">
+        <img src="https://images.pexels.com/photos/2983468/pexels-photo-2983468.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Wrist Watch" class="rounded-md object-cover h-48 w-full mb-4" />
+        <h3 class="text-lg font-semibold text-gray-800 mb-2">Wrist Watch</h3>
+        <p class="text-pink-500 font-bold mb-2">$79.99</p>
+        <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition mt-auto">Add to Cart</button>
+      </div>
+    </div>
+    </section>
+  </main>
+
+  <!-- Wishlist Modal -->
+  <div id="wishlist-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-3xl p-6 relative">
+      <button id="close-wishlist" class="absolute top-3 right-3 text-gray-600 hover:text-gray-900">
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+      <h2 class="text-2xl font-semibold mb-4">Your Wishlist</h2>
+      <div id="wishlist-items" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
+        <!-- Wishlist items will be rendered here -->
+      </div>
+      <div id="empty-wishlist" class="text-center text-gray-500 mt-6 hidden">Your wishlist is empty.</div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
