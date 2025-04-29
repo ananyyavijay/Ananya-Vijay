@@ -2,12 +2,12 @@
 const products = [
   {
     id: 1,
-    name: "Classic White T-Shirt",
+    name: "Formal Shirt",
     category: "Clothing",
     price: 19.99,
     bestSelling: true,
-    image: "https://images.pexels.com/photos/1002644/pexels-photo-1002644.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    description: "A comfortable classic white t-shirt made from 100% cotton."
+    image: "https://images.pexels.com/photos/428338/pexels-photo-428338.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    description: "A stylish formal shirt perfect for office and events."
   },
   {
     id: 2,
@@ -209,7 +209,16 @@ function renderProducts(productsToRender) {
 
     card.innerHTML = `
       <img src="${product.image}" alt="${product.name}" class="rounded-md object-cover h-48 w-full mb-4" />
-      <h3 class="text-lg font-semibold text-gray-800 mb-2">${product.name}</h3>
+      <h3 class="text-lg font-semibold text-gray-800 mb-1">${product.name}</h3>
+      <p class="text-gray-600 text-sm mb-2">${product.description}</p>
+      <div class="flex items-center mb-2 space-x-1 text-yellow-400">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span class="text-gray-500 text-xs ml-2">(120 reviews)</span>
+      </div>
       <p class="text-pink-500 font-bold mb-2">$${product.price.toFixed(2)}</p>
       <div class="flex justify-between items-center mt-auto">
         <button class="add-to-cart-btn bg-pastel-pink text-white px-3 py-1 rounded-md hover:bg-pink-600 transition" data-id="${product.id}">Add to Cart</button>
@@ -218,6 +227,7 @@ function renderProducts(productsToRender) {
         </button>
       </div>
     `;
+
 
     // Click on card navigates to product detail page
     card.addEventListener("click", (e) => {
